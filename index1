@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="generator"
+    content="HTML Tidy for HTML5 (experimental) for Windows https://github.com/w3c/tidy-html5/tree/c63cc39" />
+    <meta charset="utf-8" />
+    <title>Bootstrap 实例 - 强调</title>
+    <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css"
+    integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous" />
+    <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+    <script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
+    <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"
+    integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  </head>
+  
+  
+  <body>
+  
+  <div class="modal fade"  id="register" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">注册账户</h4>
+      </div>
+      <div class="modal-body">
+      
+      
+<form class="form-horizontal">
+  <div class="form-group">
+    <label for="fieldUser" class="col-sm-2 control-label">用户名*</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="inputPassword3" placeholder="">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="fieldType" class="col-sm-2 control-label">账号类型*</label>
+    <div class="col-sm-10">
+      <select class="form-control">
+        <option>接受者</option>
+        <option>发布者</option>
+      </select>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="fieldPW" class="col-sm-2 control-label">密码*</label>
+    <div class="col-sm-10">
+      <input type="password" class="form-control" id="inputPassword3" placeholder="">
+    </div>
+  </div>
+    <div class="form-group">
+    <label for="fieldPW" class="col-sm-2 control-label">确认密码*</label>
+    <div class="col-sm-10">
+      <input type="password" class="form-control" id="inputPassword3" placeholder="">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="fieldDes" class="col-sm-2 control-label">简介</label>
+    <div class="col-sm-10">
+      <textarea class="form-control" rows="1" ></textarea>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="fieldAddress" class="col-sm-2 control-label">住址</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="inputEmail3" placeholder="">
+    </div>
+  </div>
+  <div class="form-group well well-sm"  style="margin-bottom:5px">
+    <div class="col-sm-2">
+      <button type="button" class="btn btn-primary">生成私钥</button>
+    </div>
+    <div class="col-sm-10">
+      <p class="form-control-static">点击左侧按钮生成私钥</p>
+    </div>
+  </div>
+</form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+        <button type="button" class="btn btn-warning">重置</button>
+        <button type="submit" class="btn btn-primary" disabled="disabled">注册</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+  
+  
+  
+  <div class="modal fade"  id="login" tabindex="-1" role="dialog">
+  <div class="modal-dialog modal-sm" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">登录</h4>
+      </div>
+      <div class="modal-body">
+<form class="form-horizontal">
+  <div class="form-group">
+    <label for="fieldUser" class="col-sm-3 control-label">用户名</label>
+    <div class="col-sm-9">
+      <input type="text" class="form-control" id="inputPassword3" placeholder="">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="fieldPW" class="col-sm-3 control-label">密码</label>
+    <div class="col-sm-9">
+      <input type="password" class="form-control" id="inputPassword3" >
+    </div>
+  </div>
+    <div class="form-group"  style="margin-bottom:5px">
+    <div class="col-sm-offset-2 col-sm-10">
+      <div class="checkbox">
+        <label>
+          <input type="checkbox"> 记住我
+        </label>
+      </div>
+    </div>
+  </div>
+</form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+        <button type="submit" class="btn btn-primary">登录</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+  
+  
+  
+  
+  
+    <div class="container">
+      <div class="row clearfix">
+        <div class="col-md-12 column">
+          <nav class="navbar navbar-default" role="navigation">
+            <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+              <span class="sr-only">Toggle navigation</span>
+            </button> 
+            <a class="navbar-brand" href="#">CrowdBC</a></div>
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+              <ul class="nav navbar-nav">
+                <li >
+                  <a href="#">Search</a>
+                </li>
+              </ul>
+              <form class="navbar-form navbar-left" role="search">
+                <div class="form-group">
+                  <input class="form-control" type="text" />
+                </div>
+                <button type="submit" class="btn btn-default">Go</button>
+              </form>
+              <ul class="nav navbar-nav navbar-right">
+                <li>
+                  
+                </li>
+                <li>
+                  <p class="navbar-text">欢迎！</p>
+                </li>
+                <li>
+                  
+                </li>
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">List<span class="caret"></span></a>
+                  <ul class="dropdown-menu">
+                    <li>
+                      <a href="#">Action</a>
+                    </li>
+                    <li>
+                      <a href="#">Another action</a>
+                    </li>
+                    <li>
+                      <a href="#">Something else here</a>
+                    </li>
+                    <li>
+                      <a href="#">Separated link</a>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+          </nav>
+
+          
+          
+          
+          <div class="jumbotron well well-sm">
+            <h1>CrowdBC<small>基于区块链的平台</small></h1>
+            <p>This is a template for a simple marketing or informational website. It includes a large callout called the hero unit
+            and three supporting pieces of content. Use it as a starting point to create something more unique.</p>
+            <p class="text-center">
+              <button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target="#register">&nbsp;&nbsp;&nbsp;注册&nbsp;&nbsp;&nbsp;</button>
+              
+              <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#login">&nbsp;&nbsp;&nbsp;登录&nbsp;&nbsp;&nbsp;</button>
+              <a class="btn btn-lg btn-default" href="#">&nbsp;了解更多&nbsp;</a>
+              
+            </p>
+          </div>
+        </div>
+      </div>
+      
+      
+      <div class="row clearfix">
+        <div class="col-md-12 column">
+      <nav class="navbar navbar-default" role="navigation">
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav">
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+              aria-expanded="false">任务<span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li>
+                  <a href="#">发布</a>
+                </li>
+                <li>
+                  <a href="#">接受</a>
+                </li>
+                <li>
+                  <a href="#">查询</a>
+                </li>
+                <li>
+                  <a href="#">管理</a>
+                </li>
+              </ul>
+            </li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+              aria-expanded="false">账户<span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li>
+                  <a href="#">密码修改</a>
+                </li>
+                <li>
+                  <a href="#">其他信息修改</a>
+                </li>
+                <li>
+                  <a href="#">账户管理</a>
+                </li>
+              </ul>
+            </li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+              aria-expanded="false">系统<span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li>
+                  <a href="#">合约模板</a>
+                </li>
+                <li>
+                  <a href="#">系统参数</a>
+                </li>
+              </ul>
+            </li>
+      </div>
+      </nav>
+      </div>
+      </div>
+      
+      
+      
+      <div class="row clearfix">
+        <div class="col-md-4 column">
+          <h2>Heading</h2>
+          <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum
+          nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.</p>
+          <p>
+            <a class="btn" href="#">View details »</a>
+          </p>
+        </div>
+        <div class="col-md-4 column">
+          <h2>Heading</h2>
+          <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum
+          nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.</p>
+          <p>
+            <a class="btn" href="#">View details »</a>
+          </p>
+        </div>
+        <div class="col-md-4 column">
+          <h2>Heading</h2>
+          <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum
+          nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.</p>
+          <p>
+            <a class="btn" href="#">View details »</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
