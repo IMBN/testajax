@@ -1,0 +1,201 @@
+  /*navlogin5*/  
+  
+  
+/*logout1*/
+function logout()
+{
+    var hr=new XMLHttpRequest();
+    var logoutdia=document.getElementById("logout");
+    var diap=document.getElementById("logoutp");
+    diap.innerHTML="正在登出，请稍后...";
+    
+    hr.onreadystatechange=function()
+    {
+        if (hr.readyState==4 && hr.status==200)
+        {
+            var txt=hr.responseText;
+            txt=JSON.parse(txt);
+            if(txt.login=="false")
+            {
+                diap.innerHTML="登出成功，3秒后跳转到主页...";
+                setTimeout('window.location.href="index.html"',3000);
+                
+            }
+            else
+            {
+                diap.innerHTML="登出失败，请稍后重试。";
+            }
+        }
+    }
+    
+    hr.open("GET","logout.jsp",true);
+    hr.send();
+}
+
+
+    
+/*userinfo1*/
+function setuserinfo(json,form)
+{
+    var group,label,boxdiv,boxp;
+    /*var ogroup=document.createElement("div");
+    ogroup.setAttribute("class","form-group");
+    var olabel=document.createElement("label");
+    olabel.setAttribute("class","col-sm-2 control-label");
+    var oboxdiv=document.createElement("div");
+    oboxdiv.setAttribute("class","col-sm-10");
+    var oboxp=document.createElement("div");
+    oboxp.setAttribute("class","form-control-static");*/
+    form.innerHTML="";
+    for(e in json)
+    {
+        group=document.createElement("div");
+        group.setAttribute("class","form-group");
+        label=document.createElement("label");
+        label.setAttribute("class","col-sm-2 control-label");
+        label.appendChild(document.createTextNode(e));
+        group.appendChild(label);
+        boxdiv=document.createElement("div");
+        boxdiv.setAttribute("class","col-sm-10");
+        boxp=document.createElement("div");
+        boxp.setAttribute("class","form-control-static");
+        boxp.appendChild(document.createTextNode(json[e]));
+        boxdiv.appendChild(boxp);
+        group.appendChild(boxdiv);
+        form.appendChild(group);
+    }
+}
+
+
+
+function getuserinfo()
+{
+    var form=document.getElementById("infoform");
+    var get=new XMLHttpRequest();
+    
+    form.innerHTML='<div class="col-sm-12"><p class="form-control-static text-center">Loading...</p></div>';
+    
+    
+    get.onreadystatechange=function()
+    {
+        if (get.readyState==4 && get.status==200)
+        {
+            setuserinfo(JSON.parse(get.responseText),form);
+        }
+        else
+        {}
+    }
+    
+    get.open("GET","user_info.jsp",true);
+    get.send();
+}
+  
+  
+  
+    
+    function enablenavbar()
+    {
+        var node=document.getElementById("navtask");
+        node.setAttribute("data-toggle","dropdown");
+        $(node.parentNode).removeClass("disabled");
+        
+        node=document.getElementById("navuser");
+        node.setAttribute("data-toggle","dropdown");
+        $(node.parentNode).removeClass("disabled");
+        
+        node=document.getElementById("navsys");
+        node.setAttribute("data-toggle","dropdown");
+        //node.parentNode.setAttribute("class","dropdown");
+        $(node.parentNode).removeClass("disabled");
+        //var t=node.parentNode.getAttribute("class");
+        //node.parentNode.setAttribute("class",t+" active");
+    }
+    
+    
+    
+    function userpanel(para,username)
+    {
+        var node=document.createElement("a");
+        node.setAttribute("class","dropdown-toggle");
+        node.setAttribute("data-toggle","dropdown");
+        node.setAttribute("id","dwua");
+        node.setAttribute("role","button");
+        node.appendChild(document.createTextNode("欢迎！ "+username));
+        var node1=document.createElement("span");
+        node1.setAttribute("class","caret");
+        node.appendChild(node1);
+        para.innerHTML="";
+        para.appendChild(node);
+        node=document.createElement("ul");
+        node.setAttribute("class","dropdown-menu");
+        node1=document.createElement("li");
+        var node2=document.createElement("a");
+        node2.setAttribute("data-toggle","modal");
+        node2.setAttribute("data-target","#userinfo");
+        node2.setAttribute("href","javascript:void(0)");
+        node2.appendChild(document.createTextNode("账户信息"));
+        node2.setAttribute("onclick","getuserinfo()");
+        node1.appendChild(node2);
+        node.appendChild(node1);
+        node1=document.createElement("li");
+        node2=document.createElement("a");
+        node2.setAttribute("data-toggle","modal");
+        node2.setAttribute("data-target","#logout");
+        node2.setAttribute("onclick","logout()");
+        node2.setAttribute("href","javascript:void(0)");
+        node2.appendChild(document.createTextNode("登出"));
+        node1.appendChild(node2);
+        node.appendChild(node1);
+        para.appendChild(node);
+        para.setAttribute("class","dropdown");
+    }
+    //var i=0;
+    
+    
+    function islogin()
+    {
+        var loginjsp=new XMLHttpRequest();
+        
+        loginjsp.onreadystatechange=function()
+        {
+            if (loginjsp.readyState==4 && loginjsp.status==200)
+            {
+                var json=loginjsp.responseText;
+                json=JSON.parse(json);
+                if (json.login=="true")
+                {
+                    var para=document.getElementById("loginpanel");
+                    //var node=document.createElement("p");
+                    ////node.class="navbar-text";
+                    //node.setAttribute("class","navbar-text");
+                    //node.appendChild(document.createTextNode("欢迎！ "+json.username));
+                    //para.innerHTML="";
+                    //para.appendChild(node);
+                    enablenavbar();
+                    userpanel(para,json.username);
+                }
+            }
+            else
+            {
+                //i++;
+                //alert("Can't Get Login Staus!");
+                //alert(i);
+                //alert("Can't Get Dialog.html["+loginjsp.readyState+"/"+loginjsp.status+"]");
+                //document.getElementById("dw").style.display="none";
+                //document.getElementById("dw").style.visibility="hidden"; 
+                if(loginjsp.readyState==3)
+                {
+                    //document.getElementById("dw").setAttribute("data-toggle","");
+                    //document.getElementById("dwli").className+=" disabled";
+                }
+                
+            }
+        }
+        
+        loginjsp.open("GET","am_i_login.jsp",true);
+        loginjsp.send();
+        
+    }
+    
+
+    islogin();
